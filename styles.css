@@ -1,0 +1,20 @@
+#container{
+    display:flex;
+    background-color:gray;
+    flex-direction: column;
+    align-content: center;
+    /* width: 88px; */
+}
+
+.linha-quadrado{
+    flex:1;
+    display: flex;
+}
+
+.elemento-quadrado{
+    flex: 1;
+    background-color: gray;
+    height: 20px;
+    border: 1px white solid;
+}
+
