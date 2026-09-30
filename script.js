@@ -6,16 +6,12 @@ function escolherCorAleatoria (){
 }
 
 function gerarGrade(tamanho){
-    for (let i = 0; i < tamanho; i++){
-        let linha = document.createElement("div");
-        linha.classList.add("linha-quadrado")
-        for(let j=0; j<tamanho; j++){
+    for (let i = 0; i < tamanho*tamanho; i++){
             let elemento = document.createElement("div");
             elemento.classList.add("elemento-quadrado");
-            linha.appendChild(elemento);
-        }
-        container.appendChild(linha);
-        container.style.width = `${20*tamanho + 2}px`   
+            elemento.style.width = `${800/tamanho}px`
+            elemento.style.height = `${800/tamanho}px`   
+            container.appendChild(elemento);
     }
     const quadrados = document.querySelectorAll(".elemento-quadrado")
 

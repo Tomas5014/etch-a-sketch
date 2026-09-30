@@ -1,20 +1,23 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #container{
     display:flex;
     background-color:gray;
-    flex-direction: column;
-    align-content: center;
-    /* width: 88px; */
-}
-
-.linha-quadrado{
-    flex:1;
-    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    height: 800px;
+    margin: 20px;
 }
 
 .elemento-quadrado{
-    flex: 1;
     background-color: white;
+    box-sizing: border-box;
     height: 20px;
     border: 1px black solid;
+    flex-shrink: 0;
 }
 
