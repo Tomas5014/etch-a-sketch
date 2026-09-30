@@ -1,22 +1,75 @@
-const container = document.querySelector("#container");
-
-let tamanho = 20;
-for (let i = 0; i < tamanho; i++){
-    let linha = document.createElement("div");
-    linha.classList.add("linha-quadrado")
-    for(let j=0; j<tamanho; j++){
-        let elemento = document.createElement("div");
-        elemento.classList.add("elemento-quadrado");
-        linha.appendChild(elemento);
-    }
-    container.appendChild(linha);
-    container.style.width = `${20*tamanho + 2}px`   
+function escolherCorAleatoria (){
+    const r = Math.floor(Math.random() * 256)
+    const g = Math.floor(Math.random() * 256)
+    const b = Math.floor(Math.random() * 256)
+    return `rgba(${r},${g},${b},0.1)`
 }
 
-const quadrados = document.querySelectorAll(".elemento-quadrado")
+function gerarGrade(tamanho){
+    for (let i = 0; i < tamanho; i++){
+        let linha = document.createElement("div");
+        linha.classList.add("linha-quadrado")
+        for(let j=0; j<tamanho; j++){
+            let elemento = document.createElement("div");
+            elemento.classList.add("elemento-quadrado");
+            linha.appendChild(elemento);
+        }
+        container.appendChild(linha);
+        container.style.width = `${20*tamanho + 2}px`   
+    }
+    const quadrados = document.querySelectorAll(".elemento-quadrado")
 
-quadrados.forEach((quadrado) =>{
-    quadrado.addEventListener('mouseout', (e) => {
-        quadrado.style.backgroundColor = "red";
+    quadrados.forEach((quadrado) =>{
+        quadrado.addEventListener('mouseenter', (e) => {
+            if (quadrado.style.backgroundColor === ""){
+                quadrado.style.backgroundColor = escolherCorAleatoria();
+                // quadrado.style.opacity = "0.1";
+            }else{
+                // let op = parseFloat(quadrado.style.opacity)
+                // op += 0.1;
+                // if (op > 1) op = 1;
+                // quadrado.style.opacity = op.toString();
+                let back = quadrado.style.backgroundColor;
+                back = back.split(",");
+                opacity = parseFloat(back[3]);
+                opacity += 0.1;
+                if (opacity > 1) opacity = 1;
+                back[3] = opacity + ")"
+                quadrado.style.backgroundColor = back.join(",")
+            }
+            
+        })
     })
+}
+
+const container = document.querySelector("#container");
+
+gerarGrade(16);
+
+const input = document.querySelector("input");
+const botao = document.querySelector("button");
+const mensagemErro = document.querySelector("#mensagem-erro");
+
+botao.addEventListener('click', (e)=>{
+    e.preventDefault();
+    if (mensagemErro.firstChild) mensagemErro.removeChild(mensagemErro.firstChild);
+    let tamanho = input.value;
+    input.value = null;
+    if (tamanho > 0 && tamanho < 101){
+        while (container.firstChild){
+            container.removeChild(container.firstChild);
+        }
+        gerarGrade(tamanho);
+        
+    }else{
+        let mensagem = document.createElement("p");
+        if (tamanho === "") mensagem.textContent = "Erro: Você deve inserir um valor.";
+        else mensagem.textContent = "Erro: Valor inserido inválido.";
+        mensagem.style.color = "red";
+        mensagemErro.appendChild(mensagem);
+    }
+
 })
+
+
+

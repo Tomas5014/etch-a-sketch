@@ -13,8 +13,8 @@
 
 .elemento-quadrado{
     flex: 1;
-    background-color: gray;
+    background-color: white;
     height: 20px;
-    border: 1px white solid;
+    border: 1px black solid;
 }
 
