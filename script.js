@@ -1,3 +1,6 @@
+const alturaDaJanela= window.innerHeight;
+const alturaQuandrado = (alturaDaJanela*75)/100
+
 function escolherCorAleatoria (){
     const r = Math.floor(Math.random() * 256)
     const g = Math.floor(Math.random() * 256)
@@ -9,8 +12,8 @@ function gerarGrade(tamanho){
     for (let i = 0; i < tamanho*tamanho; i++){
             let elemento = document.createElement("div");
             elemento.classList.add("elemento-quadrado");
-            elemento.style.width = `${800/tamanho}px`
-            elemento.style.height = `${800/tamanho}px`   
+            elemento.style.width = `${alturaQuandrado/tamanho}px`
+            elemento.style.height = `${alturaQuandrado/tamanho}px`   
             container.appendChild(elemento);
     }
     const quadrados = document.querySelectorAll(".elemento-quadrado")
