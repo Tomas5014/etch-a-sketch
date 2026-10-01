@@ -5,8 +5,15 @@ body{
     background-color: #3ECAB6;
     margin:0px;
     padding: 0%;
+    border: 0px;
+    min-height: 100vh;
 }
-
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 h1{
     color: white;
     /* -webkit-text-stroke: 1px black; */
@@ -24,7 +31,6 @@ button{
 input{
     background-color: #C8CBCE;
     border-radius: 5px;
-
     height: 25px;
 }
 label{
@@ -33,12 +39,21 @@ label{
     font-weight: bolder;
 }
 
+#container-externo{
+    flex:78;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
 #container{
     display:flex;
     background-color:gray;
     flex-wrap: wrap;
-    width: 75vh;
-    height: 75vh;
+    width: 600px;
+    height: 600px;
     margin: 20px;
     border: 1px black solid;
 }
@@ -52,14 +67,25 @@ label{
 }
 
 #header{
-    font-size: 20px;
+    font-size: 17px;
     background-color: #F20F7F ;
     margin: 0px;
     display: flex;
     justify-content: space-around;
-    height: 15vh;
+    flex: 15;
     align-items: center;
-    flex: 1;
     width: 100vw;
     border-bottom: 2px solid black;
+}
+
+#footer{
+    background-color: #F20F7F;
+    border-top: 2px solid black;
+    width: 100vw;
+    display: flex;
+    flex:10;
+    align-items: center;
+    justify-content: center;
+    color: #FEFEFE;
+    font-weight: bolder;
 }

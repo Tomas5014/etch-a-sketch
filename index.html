@@ -10,13 +10,18 @@
 <body>
     <div id="header">
         <h1>Etch-a-Sketch</h1>
-        <form>
-            <label for="tamanho-grade">Tamanho:</label>
-            <input type="number" id="tamanho-grade">
-            <button>Atualizar</button>
-        </form>
+        <div>
+            <form>
+                <label for="tamanho-grade">Tamanho:</label>
+                <input type="number" id="tamanho-grade">
+                <button>Atualizar</button>
+            </form>
+            <div id="mensagem-erro"></div>
+        </div>
     </div>
-    <div id="mensagem-erro"></div>
-    <div id="container"></div>
+    <div id="container-externo">
+        <div id="container"></div>
+    </div>
+    <div id="footer">Copyright &copy; Tomás Pagani Pires 2026</div>
 </body>
 </html>

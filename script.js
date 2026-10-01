@@ -12,8 +12,8 @@ function gerarGrade(tamanho){
     for (let i = 0; i < tamanho*tamanho; i++){
             let elemento = document.createElement("div");
             elemento.classList.add("elemento-quadrado");
-            elemento.style.width = `${alturaQuandrado/tamanho}px`
-            elemento.style.height = `${alturaQuandrado/tamanho}px`   
+            elemento.style.width = `${600/tamanho}px`
+            elemento.style.height = `${600/tamanho}px`   
             container.appendChild(elemento);
     }
     const quadrados = document.querySelectorAll(".elemento-quadrado")
@@ -54,7 +54,7 @@ botao.addEventListener('click', (e)=>{
     if (mensagemErro.firstChild) mensagemErro.removeChild(mensagemErro.firstChild);
     let tamanho = input.value;
     input.value = null;
-    if (tamanho > 0 && tamanho < 101){
+    if (tamanho > 0 && tamanho < 65){
         while (container.firstChild){
             container.removeChild(container.firstChild);
         }
@@ -63,8 +63,8 @@ botao.addEventListener('click', (e)=>{
     }else{
         let mensagem = document.createElement("p");
         if (tamanho === "") mensagem.textContent = "Erro: Você deve inserir um valor.";
-        else mensagem.textContent = "Erro: Valor inserido inválido.";
-        mensagem.style.color = "red";
+        else mensagem.textContent = "Erro: Valor inserido inválido, deve ser um número entre 1 e 64.";
+        mensagem.style.color = "white";
         mensagemErro.appendChild(mensagem);
     }
 
